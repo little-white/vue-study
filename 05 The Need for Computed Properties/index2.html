@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>已完成</h1>
+    <ul>
+      <li v-for="task in completedTasks">{{ task.description }}</li>
+    </ul>
+    <h1>未完成</h1>
+    <ul>
+      <li v-for="task in unCompletedTasks">{{ task.description }}</li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        tasks: [{
+          description: 'task 1',
+          completed: true
+        },{
+          description: 'task 2',
+          completed: false
+        }, {
+          description: 'task 3',
+          completed: false
+        },{
+          description: 'task 4',
+          completed: true
+        }, {
+          description: 'task 5',
+          completed: false
+        },{
+          description: 'task 6',
+          completed: true
+        },{
+          description: 'task 7',
+          completed: false
+        }]
+      },
+      computed: {
+        completedTasks: function () {
+          return this.tasks.filter(function (task) {
+            return task.completed
+          })
+        },
+        unCompletedTasks: function () {
+          return this.tasks.filter(function (task) {
+            return ! task.completed
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

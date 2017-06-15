@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ reverse1 }}</h1>
+    <h1>{{ reverse1 }}</h1>
+    <h1>{{ reverse() }}</h1>
+    <h1>{{ reverse() }}</h1>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        test: '123'
+      },
+      created: function () {
+        let self = this;
+        setTimeout(function () {
+          self.message = '123'
+        }, 1000)
+      },
+      computed: {
+        reverse1: function () {
+          console.log('computed')
+          return this.message.split('').reverse().join('')
+        },
+        message: {
+          get: function () {
+            return 'hello world';
+          },
+          set: function () {
+            console.log(123)
+          }
+        }
+      },
+      methods: {
+        reverse: function () {
+          console.count('methods')
+          return this.message.split('').reverse().join('')
+        }
+      }
+    })
+  </script>
+</body>
+</html>
