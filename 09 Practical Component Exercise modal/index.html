@@ -9,7 +9,11 @@
 
 <body>
     <div id="app">
-        <modal :is-active="isActive" @hide-modal="hideModal"></modal>
+        <modal :is-active="isActive" @hide-modal="hideModal">
+          <div class="box">
+            123
+          </div>
+        </modal>
         <button @click="showModal">show modal</button>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>

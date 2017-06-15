@@ -3,7 +3,7 @@ Vue.component('modal', {
     <div class="modal" :class="{'is-active': isActive}">
         <div class="modal-background"></div>
         <div class="modal-content">
-            <div class="box">123</div>
+            <slot></slot>
         </div>
         <button class="modal-close" v-on:click="hideModal"></button>
     </div>
