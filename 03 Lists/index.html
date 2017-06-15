@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="name in names">{{name}}</li>
+    </ul>
+    <input type="text" v-model="name">
+    <button @click="addName">Add Name</button>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        names: ['qiqi', 'little-white', 'supershy'],
+        name: ''
+      },
+      created: function () {
+        console.log(document.querySelector('#app li'))
+      },
+      methods: {
+        addName: function () {
+          this.names.push(this.name)
+          this.name = ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>
